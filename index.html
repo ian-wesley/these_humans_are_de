@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Name Reordering</title>
+</head>
+<body>
+  <h1>Name Reordering</h1>
+  <p>Click the button to reorder the list of names:</p>
+  <button onclick="reorderNames()">Reorder Names</button>
+  <br>
+  <br>
+  <ul id="nameList">
+    <li>Alice</li>
+    <li>Bob</li>
+    <li>Eve</li>
+  </ul>
+  <script>
+    function reorderNames() {
+      // Get the list of names
+      var nameList = document.getElementById("nameList");
+
+      // Get the list of names as an array
+      var names = [].slice.call(nameList.children);
+
+      // Shuffle the array of names
+      names.sort(function() { return 0.5 - Math.random() });
+
+      // Clear the nameList element
+      nameList.innerHTML = "";
+
+      // Add the shuffled names to the nameList element
+      names.forEach(function(name) {
+        nameList.appendChild(name);
+      });
+    }
+  </script>
+</body>
+</html>
